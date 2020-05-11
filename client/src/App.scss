@@ -1,0 +1,296 @@
+@import "~bootstrap/scss/bootstrap";
+@import './reset.scss';
+
+// colors
+$amber: #ffc107;
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgba(240, 248, 255, 0.91);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+  &:hover {
+    color: inherit;
+  }
+}
+
+ul,li {
+list-style: none;
+}
+
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.content {
+  &-inner {
+    padding: 15px;
+  }
+}
+
+.header {
+
+  background-color: $amber;
+
+  &-inner {
+    padding: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-left {
+    display: flex;
+    align-items: center;
+  }
+  &-right {
+    display: flex;
+    align-items: center;
+    &__btn {
+      margin-left: 25px;
+    }
+  }
+  &-title {
+    font-size: 30px;
+    margin-right: 50px;
+  }
+  &-nav {
+    &__list {
+      display: flex;
+    }
+
+    &__item {
+      margin-right: 25px;
+    }
+  }
+}
+
+.main {
+  &-inner {
+
+  }
+
+  &-question {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+
+    &__btn {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+
+      img {
+        width: 15px;
+        height: 15px;
+      }
+
+    }
+    &__title {
+      a {
+        font-weight: 600;
+        font-size: 22px;
+      }
+
+    }
+    &__subtitle {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    &__text {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    &__footer{
+      font-size: 14px;
+
+      span {
+        margin-right: 10px;}
+    }
+
+  }
+
+}
+
+
+.question {
+  &-content {
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 30px;
+  }
+  &-title {
+    color: $amber;
+    font-size: 22px;
+  }
+  &-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+  &-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  &-footer {
+    font-size: 14px;
+    span {
+      margin-right: 15px;
+    }
+  }
+
+  &-form {
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 30px;
+
+    &__title {
+      margin-bottom: 20px;
+    }
+    &__content {
+      display: flex;
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    &__img {
+      img {
+        border-radius: 50%;
+      }
+      margin-right: 30px;
+    }
+
+    &__input {
+      flex: 1;
+
+      textarea {
+        width: 100%;
+        font-size: 16px;
+        height: 100px;
+        resize: none;
+      }
+
+      .btn {
+
+      }
+
+    }
+  }
+
+}
+
+.answers {
+  background-color: white;
+  padding: 15px;
+  &-title {
+    color: $amber;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    margin-top: 30px;
+    &-title {
+
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: $amber;
+
+      span {
+        color: #000;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+    &-text {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    &-footer {
+      font-size: 14px;
+    }
+
+  }
+
+}
+
+.ask {
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+
+  &-title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  &-form {
+    label {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      resize: none;
+      font-size: 16px;
+    }
+    button {
+      padding: 5px 20px;
+    }
+  }
+}
+
+
+.auth {
+
+  margin: 100px 100px;
+  padding: 20px;
+  background-color: white;
+
+  &-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-form {
+    margin-bottom: 30px;
+    input {
+      width: 80%;
+      outline: none;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      padding: 3px 20px;
+      font-size: 18px;
+    }
+
+  }
+  a {
+    color: #085e9c;
+  }
+}
+
+.message {
+  background-color: rgba(255, 243, 52, 0.48);
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 100%;
+
+
+}
+
+.error {
+  background-color: rgba(255, 0, 0, 0.48);
+}
