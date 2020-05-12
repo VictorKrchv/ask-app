@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom"
-import {getQuestionData} from "../../Redux/question-reducer";
+import {getQuestionData, postAnswerThunk} from "../../Redux/question-reducer";
 import {Question} from "./Question";
 import {AnswersList} from "./Answers/AnswersList";
 import {QuestionForm} from "./QuestionForm";
@@ -19,8 +19,8 @@ export const QuestionPage = React.memo( () => {
 
     const questionState = useSelector(state => state.question)
 
-    const postComment = (value) => {
-        console.log(value)
+    const postAnswer = (value) => {
+        dispatch(postAnswerThunk(value))
     }
 
     if (questionState.isLoading) {
@@ -32,7 +32,7 @@ export const QuestionPage = React.memo( () => {
             <Question text={questionState.question.text} title={questionState.question.title}
                       likes={questionState.question.likes} author={questionState.question.author}
                       date={questionState.question.date} answers={questionState.answers.length}/>
-            <QuestionForm postComment={postComment}/>
+            <QuestionForm postAnswer={postAnswer}/>
             <AnswersList answers={questionState.answers}/>
         </div>
     )

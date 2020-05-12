@@ -1,18 +1,19 @@
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
+import {Form} from "react-bootstrap";
 
-export const QuestionForm = React.memo(({postComment}) => {
+export const QuestionForm = React.memo(({postAnswer}) => {
 
     const [value, setValue] = useState('')
 
 
     const onSubmit = (e) => {
         e.preventDefault()
-        postComment(value)
+        postAnswer(value)
     }
 
     return (
-        <form action="" className="question-form" onSubmit={onSubmit}>
+        <Form action="" className="question-form" onSubmit={onSubmit}>
             <div className="question-form__title">
                 <h3>Answer the question</h3>
             </div>
@@ -22,11 +23,15 @@ export const QuestionForm = React.memo(({postComment}) => {
                 {/*    <img src="https://via.placeholder.com/50" alt=""/>*/}
                 {/*</div>*/}
 
-                <div className="question-form__input" >
-                    <textarea type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Write your answer here"/>
+                <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Write your answer here</Form.Label>
+                    <Form.Control as="textarea" rows="3" value={value} onChange={(e) => setValue(e.target.value)} />
+                </Form.Group>
+
                     <Button size={"sm"} className="btn" type={"submit"}>Send answer</Button>
-                </div>
+
             </div>
-        </form>
+        </Form>
+
     )
 })

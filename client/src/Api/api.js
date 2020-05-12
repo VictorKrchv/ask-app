@@ -40,5 +40,9 @@ export const questionsAPI = {
     },
     getQuestion(id) {
         return instance.get(`api/questions/${id}`);
+    },
+    postAnswer(text) {
+        return withToken.post(`api/answers/generate`, {text})
     }
 }
+

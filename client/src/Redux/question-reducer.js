@@ -3,6 +3,7 @@ import {questionsAPI} from "../Api/api";
 const SET_QUESTION_DATA = "SET_QUESTION_DATA"
 const SET_ANSWERS = "SET_ANSWERS"
 const SET_LOADING = "SET_LOADING"
+const ADD_ANSWER = "ADD_ANSWER"
 
 let initialState = {
     question: {
@@ -42,8 +43,14 @@ const questionReducer = (state = initialState, action) => {
 
             }
         }
+        case ADD_ANSWER: {
+            debugger
+            return {
+                ...state,
+                answers: [... state.answers, {...action.payload.answer, author: {...action.payload.author}, likes: 0}]
+            }
+        }
         case SET_LOADING: {
-
             return {
                 ...state,
                 isLoading: !state.isLoading
@@ -59,6 +66,10 @@ const setQuestionData = (title, text, likes, author, date, answers) => ({
 
 const toggleLoading = () => ({
     type: SET_LOADING,
+})
+
+const addComment = (answer, author) => ({
+    type: ADD_ANSWER, payload: {answer, author}
 })
 
 const setAnswers = (answers) => ({
@@ -79,7 +90,17 @@ export const getQuestionData = (id) => async (dispatch) => {
     }
 }
 
-
+export const postAnswerThunk = (text) => async (dispatch) => {
+    try {
+        let response = await questionsAPI.postAnswer(text)
+        if (response.status === 200) {
+            const {answer, author} = response.data
+            dispatch(addComment(answer, author))
+        }
+    } catch (e) {
+        console.log(e)
+    }
+}
 
 
 export default questionReducer;
